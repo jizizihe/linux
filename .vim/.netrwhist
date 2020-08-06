@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/d20jzzh/ubuntucore.lichee/linux-3.10/arch/arm64'
+let g:netrw_dirhist_2='/home/d20jzzh/lichee/linux-3.10/include/linux/input'
+let g:netrw_dirhist_3='/home/d20jzzh/ubuntucore.lichee/tools/buildroot/target/dragonboard/extra/etc/wpa_supplicant'
+let g:netrw_dirhist_4='/home/d20jzzh/ubuntucore.lichee/tools/buildroot/target/dragonboard/extra/usr/bin'
+let g:netrw_dirhist_5='/home/d20jzzh/android/sdk'
+let g:netrw_dirhist_6='/home/d20jzzh/helpera64/lichee/linux-3.10/drivers/input/touchscreen/gt9xxnew/GT9XXF Firmware Headers'
+let g:netrw_dirhist_7='/home/d20jzzh/helpera64/lichee/linux-3.10/drivers/input/touchscreen/gt9xxnew/GT9XXF Firmware Headers/GT910'
+let g:netrw_dirhist_8='/home/d20jzzh/.vim'
