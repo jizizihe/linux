@@ -286,4 +286,5 @@ hi PmenuSel ctermbg=10
 
 #### 12、颜色图
 
-![image-20200806202357000](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200806202357000.png)
+![vim_color](https://github.com/jizizihe/vim/blob/master/photo/Image.png)
+
