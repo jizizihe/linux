@@ -1,7 +1,7 @@
 #!/bin/sh
 echo ---------1-------------
 #awk 动作 文件名
-# $0代表当前行
+# $0代表整个文本行
 #根据空格和制表符，将每一行分成若干字段，依次用$1为第一列，$2为第二列......，依次类推
 echo 'hello awk' | awk '{print $0}'
 
@@ -37,5 +37,8 @@ echo ---------6-------------
 awk -F ':' '{if ($1 > "m") print $1}' log.txt #输出第一个字段的第一个字符大于m的行。
 echo 
 awk -F ':' '{if ($1 > "m") print $1; else print "error! "}' log.txt
-
-
+echo ---------7-------------
+#BEGIN END
+awk 'BEGIN {print "The data3 File Contents:"} {print $0}' log.txt #BEGIN 会强制 awk 在读取数据前执行该关键字后指定的脚本命令
+echo
+awk 'BEGIN {print "The data3 File Contents:"} {print $0} END {print "End of File"}' log.txt #awk 会在读完数据后执行它们
