@@ -1,3 +1,4 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set cursorline
 "显示状态行
 set statusline+=%F____line:%l____percent:%p
@@ -9,24 +10,48 @@ syntax on
 set hlsearch
 "鼠标点击
 set mouse=nv
+set selection=exclusive
+set selectmode=mouse,key
+"增加跳转脚本
+nnoremap <F2> :! find . -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.java" > cscope.files ;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
+"忽略大小写
+nnoremap <F3> :set ignorecase<CR> 
+"去空行  
+nnoremap <F4> :%s/\s\+$//<CR> 
+"创建新窗口与标签页
+nnoremap <F5> :vne<CR> 
+nnoremap <F6> :tabnew<CR> 
+nnoremap <F7> :tabp<CR> 
+nnoremap <F8> :tabn<CR> 
+"ctags跳转匹配的标签
+nnoremap <c-F6> :ts<CR> 
+nnoremap <c-F7> :tp<CR> 
+nnoremap <c-F8> :tn<CR> 
+"禁止生成临时文件
+set nobackup
+set noswapfile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "自动缩进设置tab=4
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noexpandtab "不要将tab转化为空格
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "增加ctags跳转
 set autochdir
 set tags=tags;
 map <c-]> g<c-]>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "taglist
 let Tlist_Show_One_File = 1 "多个文件时，只选择当前文件的
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示
-"let Tlist_Auto_Open = 1 "自动打开
+let Tlist_Auto_Open = 1 "自动打开
 let Tlist_Use_SingleClick = 1 "单击跳转
 let Tlist_WinWidth = 40 "窗口宽度
 map ll :Tlist <Enter>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "保存上次进入的位置
 if has("autocmd")
 autocmd BufReadPost *
@@ -34,6 +59,7 @@ autocmd BufReadPost *
 \   exe "normal g`\"" |
 \ endif
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "c
 hi cFunctions gui=NONE cterm=NONE ctermfg=14
 hi cComment ctermfg =3
@@ -61,6 +87,7 @@ hi javaNumber ctermfg =75
 hi javaConstant ctermfg =201
 hi javaType ctermfg =118
 hi javaStatement ctermfg =9
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "cscope
 if has("cscope")  
 	set csprg=/usr/bin/cscope
@@ -83,11 +110,12 @@ endif
 nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
 nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "输入. , ->, :: 操作符自动补全自动补全
 filetype on
 filetype plugin on
@@ -100,6 +128,65 @@ let OmniCpp_GlobalScopeSearch=1
 let OmniCpp_DefaultNamespace=["std"]
 let OmniCpp_ShowPrototypeInAbbr=1 "打开显示函数原型
 let OmniCpp_SelectFirstItem = 2 "自动弹出时自动跳至第一个
-"自动弹出颜色设置
-hi Pmenu ctermfg=0 ctermbg=171
+hi Pmenu ctermfg=0 ctermbg=171 "自动弹出颜色设置
 hi PmenuSel ctermbg=10
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"map <F2> :call TitleDet()<cr> "按F2插入文件头
+"新建.c,.h,.sh文件，自动插入文件头
+"autocmd BufNewFile *.cpp,*.[ch],*.sh exec ":call TitleDet()" 
+autocmd BufNewFile * exec ":call TitleDet()" 
+function AddTitle()
+	if &filetype == 'sh' "如果文件类型为.sh文件
+		call append(0,"# ******************************************************")
+		call append(1,"# Filename     : ".expand("%:t"))
+		call append(2,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
+		call append(3,"# Author       : jzzh")
+		call append(4,"# Email        : jzzh@szbaijie.cn")
+		call append(5,"# Company site : http://www.szbaijie.cn/index.php")
+		call append(6,"# Description  : ")
+		call append(7,"# ******************************************************")
+		call append(8,"\#!/bin/sh")
+		echohl WarningMsg | echo "Successful in adding copyright." | echohl None
+	else
+		call append(0,"/******************************************************")
+		call append(1,"* Filename     : ".expand("%:t"))
+		call append(2,"* Last modified: ".strftime("%Y-%m-%d %H:%M"))
+		call append(3,"* Author       : jzzh")
+		call append(4,"* Email        : jzzh@szbaijie.cn")
+		call append(5,"* Company site : http://www.szbaijie.cn/index.php")
+		call append(6,"* Description  : ")
+		call append(7,"******************************************************/")
+	endif
+	if &filetype == 'c'
+		call append(8,"#include<stdio.h>") 
+	endif
+	if &filetype == 'cpp'
+		call append(8, "#include<iostream>")
+		call append(9, "using namespace std;")
+	endif
+endfunction
+
+function UpdateTitle()
+	normal m'
+	execute '/# Last modified/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
+	normal ''
+	normal mk
+	execute '/# Filename/s@:.*$@\=": ".expand("%: ")@'
+	execute "noh"
+	normal 'k
+	echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
+endfunction
+
+function TitleDet()
+	let n=1
+	while n < 10
+		let line = getline(n)
+		if line =~ '^\#\s*\S*Last\smodified\S*.*$'
+			call UpdateTitle()
+			return
+		endif
+	let n = n + 1
+	endwhile
+	call AddTitle()
+endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
