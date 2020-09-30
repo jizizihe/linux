@@ -10,8 +10,6 @@ syntax on
 set hlsearch
 "鼠标点击
 set mouse=nv
-set selection=exclusive
-set selectmode=mouse,key
 "增加跳转脚本
 nnoremap <F2> :! find . -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.java" > cscope.files ;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
 "忽略大小写
