@@ -41,6 +41,20 @@ set autochdir
 set tags=tags;
 map <c-]> g<c-]>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"NERDTree.vim
+"nnoremap <c-F5> :NERDTreeMirror<CR>
+"nnoremap <c-F5> :NERDTreeToggle<CR>
+map ll :NERDTreeMirror <Enter>
+map ll :NERDTreeToggle <Enter>
+"基本设置
+let g:NERDTreeWinPos="left"
+let g:NERDTreeWinSize=40
+let g:NERDTreeShowLineNumbers=1
+let g:neocomplcache_enable_at_startup = 1 "插件自动启动 
+"不显示隐藏文件
+let g:NERDTreeHidden=0
+let NERDTreeIgnore = ['\.swp', '\.swo', '\.mod.c', '\.mod.o', '\.builtin', '\.order'] "过滤: 所有指定文件和文件夹不显示
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "taglist
 let Tlist_Show_One_File = 1 "多个文件时，只选择当前文件的
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
@@ -48,7 +62,7 @@ let Tlist_Use_Right_Window = 1 "在右侧窗口中显示
 let Tlist_Auto_Open = 1 "自动打开
 let Tlist_Use_SingleClick = 1 "单击跳转
 let Tlist_WinWidth = 40 "窗口宽度
-map ll :Tlist <Enter>
+map ;; :Tlist <Enter>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "保存上次进入的位置
 if has("autocmd")
