@@ -44,16 +44,16 @@ map <c-]> g<c-]>
 "NERDTree.vim
 "nnoremap <c-F5> :NERDTreeMirror<CR>
 "nnoremap <c-F5> :NERDTreeToggle<CR>
-map ll :NERDTreeMirror <Enter>
-map ll :NERDTreeToggle <Enter>
-"基本设置
-let g:NERDTreeWinPos="left"
-let g:NERDTreeWinSize=40
-let g:NERDTreeShowLineNumbers=1
-let g:neocomplcache_enable_at_startup = 1 "插件自动启动 
-"不显示隐藏文件
-let g:NERDTreeHidden=0
-let NERDTreeIgnore = ['\.swp', '\.swo', '\.mod.c', '\.mod.o', '\.builtin', '\.order'] "过滤: 所有指定文件和文件夹不显示
+"map ll :NERDTreeMirror <Enter>
+"map ll :NERDTreeToggle <Enter>
+""基本设置
+"let g:NERDTreeWinPos="left"
+"let g:NERDTreeWinSize=40
+"let g:NERDTreeShowLineNumbers=1
+"let g:neocomplcache_enable_at_startup = 1 "插件自动启动 
+""不显示隐藏文件
+"let g:NERDTreeHidden=0
+"let NERDTreeIgnore = ['\.swp', '\.swo', '\.mod.c', '\.mod.o', '\.builtin', '\.order'] "过滤: 所有指定文件和文件夹不显示
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "taglist
 let Tlist_Show_One_File = 1 "多个文件时，只选择当前文件的
@@ -62,7 +62,7 @@ let Tlist_Use_Right_Window = 1 "在右侧窗口中显示
 let Tlist_Auto_Open = 1 "自动打开
 let Tlist_Use_SingleClick = 1 "单击跳转
 let Tlist_WinWidth = 40 "窗口宽度
-map ;; :Tlist <Enter>
+map ll :Tlist <Enter>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "保存上次进入的位置
 if has("autocmd")
@@ -122,11 +122,11 @@ endif
 nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
 nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "输入. , ->, :: 操作符自动补全自动补全
 filetype on
@@ -149,14 +149,14 @@ hi PmenuSel ctermbg=10
 autocmd BufNewFile * exec ":call TitleDet()" 
 function AddTitle()
 	if &filetype == 'sh' "如果文件类型为.sh文件
-		call append(0,"# ******************************************************")
+		call append(0,"#######################################################")
 		call append(1,"# Filename     : ".expand("%:t"))
 		call append(2,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
 		call append(3,"# Author       : jzzh")
 		call append(4,"# Email        : jzzh@szbaijie.cn")
 		call append(5,"# Company site : http://www.szbaijie.cn/index.php")
 		call append(6,"# Description  : ")
-		call append(7,"# ******************************************************")
+		call append(7,"#######################################################")
 		call append(8,"\#!/bin/sh")
 		echohl WarningMsg | echo "Successful in adding copyright." | echohl None
 	else
