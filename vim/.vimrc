@@ -12,6 +12,7 @@ set hlsearch
 set mouse=nv
 "增加跳转脚本
 nnoremap <F2> :! find . -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.java" > cscope.files ;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
+nnoremap <F2> :! python3 ~/tools/ctags_cscope/ctags_cscope.py;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
 "忽略大小写
 nnoremap <F3> :set ignorecase<CR> 
 "去空行  
@@ -105,6 +106,7 @@ if has("cscope")
 	set csprg=/usr/bin/cscope
 	set csto=1 "先查询tag的再查询cscope的(csto=0)
 	"set cst "同时查找cscope数据库和tags文件(nocst)
+	set nocsverb
 	set cspc=3
 	"add any database in current dir
 	if filereadable("cscope.out")
