@@ -10,6 +10,7 @@ syntax on
 set hlsearch
 "鼠标点击
 set mouse=nv
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "增加跳转脚本
 nnoremap <F2> :! python3 ~/.vim/ctags_cscope/ctags_cscope.py;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
 "忽略大小写
@@ -25,6 +26,12 @@ nnoremap <F8> :tabn<CR>
 nnoremap <c-F6> :ts<CR> 
 nnoremap <c-F7> :tp<CR> 
 nnoremap <c-F8> :tn<CR> 
+"打开最近文件, :e #<数字跳转或者按"q”再输入数字，就能跳转。
+nnoremap <c-F5> :browse oldfiles<CR> 
+"按住ALT+PAGEUP会使另一边窗口滑动
+noremap <M-PageUp> <C-w>p<C-u><C-w>p
+noremap <M-PageDown> <C-w>p<C-d><C-w>p
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "禁止生成临时文件
 set nobackup
 set noswapfile
