@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cursorline
+"set cursorline
 "显示状态行
 set statusline+=%F____line:%l____percent:%p
 set laststatus=2
@@ -80,16 +80,16 @@ autocmd BufReadPost *
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "c
-hi cFunctions gui=NONE cterm=NONE ctermfg=14
-hi cComment ctermfg =3
-hi cString ctermfg =208
-hi cNumber ctermfg =75
-hi cConstant ctermfg =201
-hi cType ctermfg =118
-hi cStatement ctermfg =9
-hi cPreCondit ctermfg =1 "声明颜色"
-hi cDefine ctermfg =2 "声明颜色"
-hi cStructure ctermfg =141 "声明颜色"
+hi cFunctions gui=NONE cterm=NONE ctermfg=14 "函数颜色
+hi cComment ctermfg =3 "注释颜色
+hi cString ctermfg =208 "字符串颜色
+hi cNumber ctermfg =75 "数字颜色
+hi cConstant ctermfg =201 "常量颜色
+hi cType ctermfg =118 "类型颜色
+hi cStatement ctermfg =9 "声明颜色
+hi cPreCondit ctermfg =1 "#if 0 #endif 颜色
+hi cDefine ctermfg =2 "define "define颜色
+hi cStructure ctermfg =141 "结构体颜色
 "java
 hi javaFuncDef gui=NONE cterm=NONE ctermfg=14
 hi javaComment ctermfg =3
@@ -99,7 +99,7 @@ hi javaStorageClass ctermfg =121
 hi javaExceptions ctermfg =211
 hi javaScopeDecl ctermfg =197
 hi javaBoolean ctermfg =223
-let java_highlight_java =1
+let java_highlight_java =1 "打开java内部的高亮，如String、Integer
 let java_highlight_functions =1
 hi javaString ctermfg =202
 hi javaNumber ctermfg =75
@@ -127,14 +127,13 @@ if has("cscope")
 	endif
 endif
 "按下ctrl+空格键+s，下面类似
-nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-@>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR> "找到这个C符号
+nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR> "找到这个定义
+nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR> "找到调用这个函数的函数
+nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR> "找到此文件
+nmap <C-@>i :cs find i <C-R>=expand("<cfile>")<CR><CR> "找文件#包括这个文件
+nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR> "找到对其的赋值
+nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR> "找到被这个函数调用的函数
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "输入. , ->, :: 操作符自动补全自动补全
 filetype on
