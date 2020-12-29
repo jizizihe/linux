@@ -22,12 +22,12 @@ nnoremap <F5> :vne<CR>
 nnoremap <F6> :tabnew<CR> 
 nnoremap <F7> :tabp<CR> 
 nnoremap <F8> :tabn<CR> 
+"打开最近文件, :e #<数字跳转或者按"q”再输入数字，就能跳转。
+nnoremap <c-F5> :browse oldfiles<CR> 
 "ctags跳转匹配的标签
 nnoremap <c-F6> :ts<CR> 
 nnoremap <c-F7> :tp<CR> 
 nnoremap <c-F8> :tn<CR> 
-"打开最近文件, :e #<数字跳转或者按"q”再输入数字，就能跳转。
-nnoremap <c-F5> :browse oldfiles<CR> 
 "按住ALT+PAGEUP会使另一边窗口滑动
 noremap <M-PageUp> <C-w>p<C-u><C-w>p
 noremap <M-PageDown> <C-w>p<C-d><C-w>p
@@ -176,13 +176,13 @@ function AddTitle()
 		call append(6,"* Description  : ")
 		call append(7,"******************************************************/")
 	endif
-	if &filetype == 'c'
-		call append(8,"#include<stdio.h>") 
-	endif
-	if &filetype == 'cpp'
-		call append(8, "#include<iostream>")
-		call append(9, "using namespace std;")
-	endif
+"	if &filetype == 'c'
+"		call append(8,"#include<stdio.h>") 
+"	endif
+"	if &filetype == 'cpp'
+"		call append(8, "#include<iostream>")
+"		call append(9, "using namespace std;")
+"	endif
 endfunction
 
 function UpdateTitle()
