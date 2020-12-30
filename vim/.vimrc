@@ -66,7 +66,7 @@ map <c-]> g<c-]>
 let Tlist_Show_One_File = 1 "多个文件时，只选择当前文件的
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示
-let Tlist_Auto_Open = 1 "自动打开
+let Tlist_Auto_Open = 0 "自动打开
 let Tlist_Use_SingleClick = 1 "单击跳转
 let Tlist_WinWidth = 40 "窗口宽度
 map ll :Tlist <Enter>
