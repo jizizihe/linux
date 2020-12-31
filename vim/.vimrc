@@ -81,14 +81,14 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "c
 hi cFunctions gui=NONE cterm=NONE ctermfg=14 "函数颜色
-hi cComment ctermfg =3 "注释颜色
+hi cComment ctermfg =100 "注释颜色
 hi cString ctermfg =208 "字符串颜色
 hi cNumber ctermfg =75 "数字颜色
 hi cConstant ctermfg =201 "常量颜色
 hi cType ctermfg =118 "类型颜色
 hi cStatement ctermfg =9 "声明颜色
 hi cPreCondit ctermfg =1 "#if 0 #endif 颜色
-hi cDefine ctermfg =2 "define "define颜色
+hi cDefine ctermfg =177 "define "define颜色
 hi cStructure ctermfg =141 "结构体颜色
 "java
 hi javaFuncDef gui=NONE cterm=NONE ctermfg=14
