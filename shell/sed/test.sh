@@ -24,6 +24,7 @@ sed '3,$d' example.txt #特殊的文件结尾字符，比如删除 example.txt �
 echo ---------1-------------
 #sed a 和 i: a 命令表示在指定行的后面附加一行，i 命令表示在指定行的前面插入一行 
 sed '3i\This is an inserted line.' example.txt #将一个新行插入到数据流第三行前
+sed -i '3i\This is an inserted line.' example.txt #将一个新行插入到文件第三行前
 echo
 sed '3a\This is an appended line.' example.txt #将一个新行附加到数据流中第三行后
 echo

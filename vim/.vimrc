@@ -1,4 +1,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"中文显示
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set cursorline
 "显示状态行
 set statusline+=%F____line:%l____percent:%p
@@ -10,7 +15,6 @@ syntax on
 set hlsearch
 "鼠标点击
 set mouse=nv
-set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "增加跳转脚本
 nnoremap <F2> :! python3 ~/.vim/ctags_cscope/ctags_cscope.py;cscope -Rbkq -i cscope.files ;ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR> 
@@ -70,7 +74,7 @@ let Tlist_Use_Right_Window = 1 "在右侧窗口中显示
 let Tlist_Auto_Open = 0 "自动打开
 let Tlist_Use_SingleClick = 1 "单击跳转
 let Tlist_WinWidth = 40 "窗口宽度
-map ll :Tlist <Enter>
+map ;; :Tlist <Enter>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "保存上次进入的位置
 if has("autocmd")
